@@ -1,0 +1,65 @@
+
+.case-selector-row {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  background-color: #111;
+}
+
+.case-selector-ocll-case {
+  display: inline-block;
+  background-color: #111;
+  border: 1px solid black;
+  margin: 5px;
+}
+
+.case-selector-coll-case {
+  display: inline-block;
+  text-align: center;
+  width: 75px;
+  padding: 10px;
+}
+
+.case-selector-coll-count {
+  font-size: 50%;
+}
+
+.case-selector-coll-not {
+  background-color: #111;
+}
+
+.case-selector-coll-partial {
+  background-color: #652;
+}
+
+.case-selector-coll-full {
+  background-color: #264;
+}
+
+.case-selector-coll-selected {
+  background-color: #146;
+}
+
+.case-selector-zbll-case {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  background-color: #333;
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 4px 0;
+}
+
+.case-selector-zbll-case:hover {
+  background-color: #246;
+}
+
+.case-selector-selected {
+  background-color: #264;
+}
+
+.case-selector-selected:hover {
+  background-color: #276;
+}
