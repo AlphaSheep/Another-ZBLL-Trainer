@@ -1,16 +1,29 @@
 <div class="case-selector-container">
-  <div class="case-selector-ocll-case" ng-repeat="ocll in $ctrl.getOCLLs()">
-    <div class="case-selector-coll-case" ng-repeat="coll in $ctrl.getCOLLs(ocll)"
-    ng-class="{'case-selector-coll-selected':$ctrl.showCOLL == coll,
-      'case-selector-coll-not': $ctrl.isNotSelected(coll),
-      'case-selector-coll-partial': $ctrl.isPartialSelected(coll),
-      'case-selector-coll-full': $ctrl.isFullySelected(coll)}">
-      <a href ng-click="$ctrl.toggleCOLL(coll)">
-        {{coll}}
-        <span class="case-selector-coll-count">
-          ({{$ctrl.getSelectedCount(coll)}}/{{$ctrl.getTotalCount(coll)}})
+  <div class="case-selector-ribbon">
+    <div class="case-selector-ocll-case" ng-repeat="ocll in $ctrl.getOCLLs()">
+      <div class="case-selector-coll-case" ng-repeat="coll in $ctrl.getCOLLs(ocll)"
+          ng-click="$ctrl.toggleCOLL(coll)"
+          ng-class="{'case-selector-coll-selected':$ctrl.showCOLL == coll,
+            'case-selector-coll-partial': $ctrl.isPartialSelected(coll),
+            'case-selector-coll-full': $ctrl.isFullySelected(coll)}">
+        <span>
+          {{coll}}
+          <span class="case-selector-coll-count">
+            ({{$ctrl.getSelectedCount(coll)}}/{{$ctrl.getTotalCount(coll)}})
+          </span>
         </span>
-      </a>
+      </div>
+      <div class="case-selector-coll-case case-selector-coll-all"
+          ng-class="{'case-selector-coll-selected':$ctrl.showCOLL == coll,
+            'case-selector-coll-partial': $ctrl.isPartiallySelectedOCLL(ocll),
+            'case-selector-coll-full': $ctrl.isFullySelectedOCLL(ocll)}"
+          ng-click="$ctrl.selectOCLL(ocll)">
+        <span>
+          [ All {{ocll}} ]
+        </span>
+      </div>
+
+
     </div>
   </div>
 
@@ -22,15 +35,13 @@
         <cube-image data-case="{{zbll}}"></cube-image>
       </a>
     </span>
-    <div>
+    <span>
       <a class="case-selector-zbll-case" href
           ng-click="$ctrl.selectAll($ctrl.showCOLL)"
           ng-class="{'case-selector-selected': $ctrl.isFullySelected($ctrl.showCOLL)}">
         All
       </a>
-    </div>
+    </span>
 
   </div>
-
-{{$ctrl.selected}}
 </div>

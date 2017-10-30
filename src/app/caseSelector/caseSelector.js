@@ -74,6 +74,69 @@ class CaseSelectorController {
     return (selectedLevel == this.getTotalCount(coll));
   }
 
+  selectAll(coll) {
+    let ocll = coll[0];
+
+    let select = true;
+    if (this.isFullySelected(coll)) {
+      select = false;
+    }
+    if (this.cases[ocll]) {
+      for (let iZbll = 0; iZbll < this.cases[ocll][coll].length; iZbll++) {
+        let zbll = this.cases[ocll][coll][iZbll];
+        this.selected[zbll] = select;
+      }
+    }
+  }
+
+  isFullySelectedOCLL(ocll) {
+    if (this.cases[ocll]) {
+      for (let coll in this.cases[ocll]) {
+        if (!this.isFullySelected(coll)) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  isPartiallySelectedOCLL(ocll) {
+    let hasfull = false;
+    let hasempty = false;
+    if (this.cases[ocll]) {
+      for (let coll in this.cases[ocll]) {
+        if (this.isPartialSelected(coll)) {
+          return true;
+        }
+        else if (this.isFullySelected(coll)) {
+          hasfull = true;
+          if (hasempty) {
+            return true;
+          }
+        }
+        else if (this.isNotSelected(coll)) {
+          hasempty = true;
+          if (hasfull) {
+            return true;
+          }
+        }
+      }
+    }
+    return false;
+  }
+
+  selectOCLL(ocll) {
+    if (this.cases[ocll]) {
+      let select = !this.isFullySelectedOCLL(ocll);
+      for (let coll in this.cases[ocll]) {
+        for (let iZbll = 0; iZbll < this.cases[ocll][coll].length; iZbll++) {
+          let zbll = this.cases[ocll][coll][iZbll];
+          this.selected[zbll] = select;
+        }
+      }
+    }
+  }
+
   getCaseName(coll) {
     let ocllNames = {
       '0':'PLL',

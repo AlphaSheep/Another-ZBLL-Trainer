@@ -1,5 +1,18 @@
+.case-selector-ribbon {
+  display: flex;
+  align-items: top;
+  text-align: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
 .case-selector-row {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
   border: 1px solid black;
   padding: 10px;
   margin: 10px;
@@ -11,6 +24,7 @@
   background-color: #111;
   border: 1px solid black;
   margin: 5px;
+  cursor: pointer;
 }
 
 .case-selector-coll-case {
@@ -18,6 +32,15 @@
   text-align: center;
   width: 75px;
   padding: 10px;
+}
+
+.case-selector-coll-case:hover {
+  color: #ccc;
+  box-shadow: inset 0px 0px 10px 5px #333;
+}
+
+.case-selector-coll-all span {
+  font-size: 70%;
 }
 
 .case-selector-coll-count {
@@ -37,7 +60,16 @@
 }
 
 .case-selector-coll-selected {
-  background-color: #146;
+  /*background-color: #234;*/
+  box-shadow: inset 0px 0px 10px 5px #234;
+}
+
+.case-selector-coll-selected.case-selector-coll-full {
+  /*background-color: #166;*/
+}
+
+.case-selector-coll-selected.case-selector-coll-partial {
+  /*background-color: #664;*/
 }
 
 .case-selector-zbll-case {
